@@ -23,7 +23,7 @@ class CLI
     end
 
     def list 
-        puts "select a game you want to view"
+        puts "Select a game you want to view"
         puts Game.all.map{|game| game.name}
         answer = gets.chomp
         @game = Game.find_or_create_by(name: answer)

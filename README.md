@@ -1,3 +1,30 @@
+Module One Final Project - Game Review
+========================
+
+Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
+
+For your final project, you'll be building a Command Line Application.
+
+---
+
+### objective 
+
+You should be able to make a new or use an existing user, then select a game be it from a given list or a game you'd like and leave a review.
+You should also be able to view existing reviews for a game of your choice or delete a review of your choice in the game you chose.
+Within the menu you should be able refresh and go back to menu or exit the app.
+
+---
+
+### Installation 
+To get all the proper gems to run the app, Use:
+Bundle Install 
+
+
+
+
+
+
+<!-- 
 Module One Final Project
 ========================
 
@@ -399,4 +426,4 @@ It's time to show off your creation to the world! Things you might want to do ar
 ---
 
 ## Common question
-How do I turn off my SQL logger? `ruby # in config/environment.rb add this line: ActiveRecord::Base.logger = nil`
+How do I turn off my SQL logger? `ruby # in config/environment.rb add this line: ActiveRecord::Base.logger = nil` -->
