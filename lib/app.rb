@@ -35,7 +35,7 @@ class CLI
                 choice = gets.chomp
                 case choice
                 when "1"
-                    puts "write your review"
+                    puts "Write your review."
                     answer = gets.chomp 
                     @review = Review.find_or_create_by(user_id: @user.id, game_id: @game.id, message: answer)
                     @review.save 
@@ -52,6 +52,7 @@ class CLI
                     end
                     answer = gets.chomp.to_i 
                     arr[answer-1].delete
+                    puts "review has been deleted."
                     # binding.pry
                 when "5"
                     puts "Enter Number of What Review you cant to delete."
@@ -60,8 +61,12 @@ class CLI
                         puts "#{i}. #{review.message}"
                     end
                     answer = gets.chomp.to_i
-                    puts "Update your Review"
-                    arr[answer-1]
+                    puts "Update your Review."
+                    new_m = gets.chomp
+                    new_a = arr[answer-1]
+                    new_a.message = new_m
+                    new_a.save 
+                    puts "Review Updated."
                     # binding.pry
                 when "6"
                     exit 
