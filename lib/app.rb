@@ -12,7 +12,7 @@ class CLI
     end
 
     def greet
-        puts "Welcome to lousy reviews, the lousiest reviews in the whole flat Earth!!"
+        puts "Welcome to lousy reviews, the lousiest reviews you can find!!"
     end
 
     def log
@@ -52,7 +52,6 @@ class CLI
                     puts "Write your review."
                     answer = gets.chomp 
                     @review = Review.find_or_create_by(user_id: @user.id, game_id: @game.id, message: answer)
-                    @review.save 
                     puts "Dang really?"
                 when "2"
                    display(@game)
