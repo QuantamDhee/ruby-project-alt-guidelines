@@ -55,19 +55,21 @@ class CLI
                     puts "Review deleted."
                     # binding.pry
                 when "5"
-                    puts "Enter Number of What Review you cant to delete."
+                    puts "Enter Number of What Review you cant to update."
                     arr = Review.all.select{|review| review.user_id == @user.id}
                     arr.each.with_index(1) do |review, i|
                         puts "#{i}. #{review.message}"
                     end
                     answer = gets.chomp.to_i
+                # when "exit"
+                #     exit 
                     puts "Update your Review."
                     new_m = gets.chomp
                     # new_a = arr[answer-1]
                     # new_a.message = new_m
                     # new_a.save 
                     arr[answer-1].update(message: "#{new_m}")
-                    puts "Review Updated."
+                    puts "Review Updated. Thank you!"
                     # binding.pry
                 when "6"
                     exit 
@@ -90,6 +92,10 @@ class CLI
         puts "(4) Delete a review"
         puts "(5) Update Reveiw"
         puts "(6) Exit"
+    end
+    
+    def out 
+        puts "exit"
     end
 end
  
