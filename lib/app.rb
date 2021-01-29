@@ -103,7 +103,7 @@ class CLI
         puts "(2) View all reviews"
         puts "(3) Back to menu"
         puts "(4) Delete a review"
-        puts "(5) Update Reveiw"
+        puts "(5) Update Review"
         puts "(6) Exit"
     end
     
