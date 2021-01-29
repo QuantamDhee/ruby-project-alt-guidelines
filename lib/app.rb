@@ -45,14 +45,14 @@ class CLI
                 when "3"
                     break 
                 when "4"
-                    puts "Enter number of what review you want to delete."
+                    puts "Enter number of review you want to delete."
                     arr = Review.all.select{|review| review.user_id == @user.id}
                     arr.each.with_index(1) do |review, i|
                         puts "#{i}. #{review.message}"
                     end
                     answer = gets.chomp.to_i 
-                    arr[answer-1].delete
-                    puts "review has been deleted."
+                    arr[answer-1].destroy
+                    puts "Review deleted."
                     # binding.pry
                 when "5"
                     puts "Enter Number of What Review you cant to delete."
@@ -63,9 +63,10 @@ class CLI
                     answer = gets.chomp.to_i
                     puts "Update your Review."
                     new_m = gets.chomp
-                    new_a = arr[answer-1]
-                    new_a.message = new_m
-                    new_a.save 
+                    # new_a = arr[answer-1]
+                    # new_a.message = new_m
+                    # new_a.save 
+                    arr[answer-1].update(message: "#{new_m}")
                     puts "Review Updated."
                     # binding.pry
                 when "6"
