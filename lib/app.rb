@@ -17,6 +17,20 @@ class CLI
 
     def log
         puts "Do you have an account? If not sign up now!"
+        # loop do 
+        #     out 
+        #     choice = gets.chomp 
+        #     case choice
+        #     when "1"
+        #         answer = gets.chomp
+        #         @user = User.find_by(name: answer)
+        #         puts "Welcome back #{@user.name.capitalize}"
+        #     when "2"
+        #         answer = gets.chomp
+        #         @user = User.create_by(name: answer)
+        #         puts "Hi! Welcome #{@user.name.capitalize}"
+        #     end
+        # end
         answer = gets.chomp
         @user = User.find_or_create_by(name: answer)
         puts "Welcome, #{@user.name.capitalize}."
@@ -95,7 +109,8 @@ class CLI
     end
     
     def out 
-        puts "exit"
+        puts "(1) LogIn"
+        puts "(2) SignUp"
     end
 end
  
