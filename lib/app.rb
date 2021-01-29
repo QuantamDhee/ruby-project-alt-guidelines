@@ -26,9 +26,9 @@ class CLI
         puts "select a game you want to view"
         puts Game.all.map{|game| game.name}
         answer = gets.chomp
-        $game = Game.find_or_create_by(name: answer)
+        @game = Game.find_or_create_by(name: answer)
         puts "Ah yes I knew you'd pick that."
-        puts "Now what to do with #{$game.name.capitalize}?"
+        puts "Now what to do with #{@game.name.capitalize}?"
 
             loop do 
                 menu
@@ -37,16 +37,24 @@ class CLI
                 when "1"
                     puts "write your review"
                     answer = gets.chomp 
-                    @review = Review.find_or_create_by(user_id: @user.id, game_id: $game.id, message: answer)
+                    @review = Review.find_or_create_by(user_id: @user.id, game_id: @game.id, message: answer)
                     @review.save 
                     puts "Dang really?"
                 when "2"
-                    puts display($game)
+                   display(@game)
                 when "3"
                     break 
                 when "4"
-                    puts Review.all.select{|review| review.user_id == @user.id}
+                    puts "Enter number of what review you want to delete."
+                    arr = Review.all.select{|review| review.user_id == @user.id}
+                    arr.each.with_index(1) do |review, i|
+                        puts "#{i}. #{review.message}"
+                    end
+                    answer = gets.chomp.to_i 
+                    arr[answer-1].delete
+                    # binding.pry
                 when "5"
+                when "6"
                     exit 
                 end
             end
@@ -56,7 +64,8 @@ class CLI
         arr = Review.all.select do |review|
             review.game_id == game.id 
         end
-        arr2 = arr.map{|review| review.message}
+        arr2 = arr.map{|review| puts review.message}
+
     end
 
     def menu 
@@ -64,7 +73,8 @@ class CLI
         puts "(2) View all reviews"
         puts "(3) Back to menu"
         puts "(4) Delete a review"
-        puts "(5) Exit"
+        puts "(5) Update Reveiw"
+        puts "(6) Exit"
     end
 end
 
