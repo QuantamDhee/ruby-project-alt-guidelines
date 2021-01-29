@@ -92,5 +92,4 @@ class CLI
         puts "(6) Exit"
     end
 end
-
  
