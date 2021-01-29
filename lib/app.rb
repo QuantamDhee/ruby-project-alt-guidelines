@@ -54,6 +54,15 @@ class CLI
                     arr[answer-1].delete
                     # binding.pry
                 when "5"
+                    puts "Enter Number of What Review you cant to delete."
+                    arr = Review.all.select{|review| review.user_id == @user.id}
+                    arr.each.with_index(1) do |review, i|
+                        puts "#{i}. #{review.message}"
+                    end
+                    answer = gets.chomp.to_i
+                    puts "Update your Review"
+                    arr[answer-1]
+                    # binding.pry
                 when "6"
                     exit 
                 end
